@@ -4,7 +4,7 @@ namespace _475_Lab_3
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Stock stock1 = new Stock("Technology", 160, 5, 15);
             Stock stock2 = new Stock("Retail", 30, 2, 6);
@@ -30,5 +30,12 @@ namespace _475_Lab_3
             b4.AddStock(stock3);
             b4.AddStock(stock4);
         }
+
+        public static void StockNotification(Stock stock, String stockName, int currentValue, int numberChanges)
+        {
+            Console.WriteLine("Broker Stock Value Changes \n");
+        }
+
+
     }
 }
