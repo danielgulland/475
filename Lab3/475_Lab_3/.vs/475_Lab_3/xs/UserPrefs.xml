@@ -1,17 +1,18 @@
 ﻿<Properties StartupConfiguration="{2C822CCD-89F8-4DB5-91A6-C4DE3355FD70}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="475_Lab_3/StockNotification.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="475_Lab_3/FileReachedEventArgs.cs">
     <Files>
       <File FileName="475_Lab_3/Program.cs" Line="33" Column="1" />
-      <File FileName="475_Lab_3/Stock.cs" Line="10" Column="65" />
-      <File FileName="475_Lab_3/StockBroker.cs" Line="1" Column="1" />
-      <File FileName="475_Lab_3/StockNotification.cs" Line="8" Column="1" />
+      <File FileName="475_Lab_3/Stock.cs" Line="49" Column="8" />
+      <File FileName="475_Lab_3/StockBroker.cs" Line="54" Column="1" />
+      <File FileName="475_Lab_3/StockNotification.cs" Line="8" Column="130" />
+      <File FileName="475_Lab_3/FileReachedEventArgs.cs" Line="8" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="475_Lab_3" expanded="True">
             <Node name="475_Lab_3" expanded="True">
-              <Node name="StockNotification.cs" selected="True" />
+              <Node name="FileReachedEventArgs.cs" selected="True" />
             </Node>
           </Node>
         </State>

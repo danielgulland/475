@@ -5,9 +5,12 @@ using System.Threading;
 
 namespace _475_Lab_3
 {
+    // Publisher class that raises events
     class Stock
     {
-        public event EventHandler<StockNotification> StockEvent;
+        public event EventHandler<StockNotification> StockEvent; // defines an event using built-in EventHandler delegate type
+
+        public event EventHandler<FileReachedEventArgs> FileReachedEvent; // defines a event to notify when a file receives stock info
 
         private readonly Thread _thread;
 
@@ -36,27 +39,44 @@ namespace _475_Lab_3
         /// <summary>
         /// Activates the threads synchronizations
         /// </summary>
-        public void Activate()
+        public void Activate(StockNotification args)
         {
             for (int i = 0; i < 25; i++)
             {
                 Thread.Sleep(500); // Thread pauses for 1/2 second (500 milliseconds)
                 //Call the function ChangeStockValue
-                ChangeStockValue();
+                ChangeStockValue(args);
             }
         }
+
+       
+
         /// <summary>
         /// Changes the stock value and also raising the event of stock value changes
         /// </summary>
-        public void ChangeStockValue()
+        public void ChangeStockValue(StockNotification args)
         {
             var rand = new Random();
-            CurrentValue += ;
+            CurrentValue += rand.Next(1, MaxChange);
             if ((CurrentValue - InitValue) > NotificationThreshold)
             {
-                StockEvent?.Invoke
-
+                StockEvent?.Invoke(this, args);
             }
         }
+
+
+        /// <summary>
+        /// An event to notify saving the following info to a text file when the threshold is reached:
+        /// date & time, stock name, initial value, and current value
+        /// </summary>
+        public void StockChangeFile(FileReachedEventArgs args)
+        {
+            if ((CurrentValue - InitValue) > NotificationThreshold)
+            {
+                FileReachedEvent?.Invoke(this, args);
+            }
+        }
+
+
     }
 }
