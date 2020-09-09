@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{2C822CCD-89F8-4DB5-91A6-C4DE3355FD70}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="475_Lab_3/StockNotification.cs">
+    <Files>
+      <File FileName="475_Lab_3/Program.cs" Line="33" Column="1" />
+      <File FileName="475_Lab_3/Stock.cs" Line="10" Column="65" />
+      <File FileName="475_Lab_3/StockBroker.cs" Line="1" Column="1" />
+      <File FileName="475_Lab_3/StockNotification.cs" Line="8" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="475_Lab_3" expanded="True">
+            <Node name="475_Lab_3" expanded="True">
+              <Node name="StockNotification.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.475__Lab__3 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
