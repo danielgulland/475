@@ -5,6 +5,7 @@ using System.Threading;
 
 namespace _475_Lab_3
 {
+    // Subsriber class that receives the notifications
     class StockBroker
     {
         private string Name { get; set; }
@@ -15,8 +16,13 @@ namespace _475_Lab_3
         //public static ReaderWriterLockSlim myLock = new ReaderWriterLockSlim();
         //readonly string docPath = @"C:\Users\Documents\CECS 475\Lab3_output.txt";
 
-        //public string titles = "Broker".PadRight(10) + "Stock".PadRight(15) +
-        //                        "Value".PadRight(10) + "Changes".PadRight(10) + "Date and Time";
+        public string titles = "Broker".PadRight(10) + "Stock".PadRight(15) +
+                                "Value".PadRight(10) + "Changes".PadRight(10) + "Date and Time";
+
+        /// <summary>
+        /// The stockbroker object
+        /// </summary>
+        /// <param name="name">The stockbroker's name</param>
 
         public StockBroker(string name)
         {
@@ -29,7 +35,7 @@ namespace _475_Lab_3
         /// <param name="stock">Stock object</param>
         public void AddStock(Stock stock)
         {
-            stocks.Add(stock);
+            stocks.Add(stock);  // Adds stock to list
             stock.StockEvent += EventHandler;  // register with an event
         }
 
@@ -38,15 +44,17 @@ namespace _475_Lab_3
         /// </summary>
         /// <param name="sender">The sender that indicated a change</param>
         /// <param name="e">Event arguments</param>
-        void EventHandler(Object sender, EventArgs e)
+        public void EventHandler(Object sender, EventArgs e)
         {
             try
             {
-                Console.WriteLine("Broker Stock Value Changes");
-                
-                Stock newStock = (Stock)sender;
-                string statement;
-             
+                Stock newStock = (Stock)sender; // Get the stock that changed
+                string statement = titles;  
+                Console.WriteLine(statement);   // print statemnet to console
+
+            }
+            catch(Exception ex)
+            {
 
             }
         }
