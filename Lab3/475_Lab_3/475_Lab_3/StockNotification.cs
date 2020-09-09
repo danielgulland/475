@@ -18,11 +18,12 @@ namespace _475_Lab_3
         /// <param name="stockName">Name of stock</param>
         /// <param name="currentValue">Current vallue of the stock</param>
         /// <param name="numChanges">Number of changes the stock goes through</param>
-        public StockNotification(string stockName, int currentValue, int numChanges)
-        {
-            this.StockName = stockName;
-            this.CurrentValue = currentValue;
-            this.NumChanges = numChanges;
-        }
+        //public StockNotification(string stockName, int currentValue, int numChanges)
+        //{
+        //    this.StockName = stockName;
+        //    this.CurrentValue = currentValue;
+        //    this.NumChanges = numChanges;
+        //}
+
     }
 }

@@ -14,12 +14,15 @@ namespace _475_Lab_3
 
         private readonly Thread _thread;
 
-        private string Name { get; set;}
-        private int InitValue { get; set; }
+
+        public string Name { get; set; }
+        public int InitValue { get; set; }
         public int CurrentValue { get; set; }
-        private int MaxChange { get; set; }
-        private int NotificationThreshold { get; set; }
+        public int MaxChange { get; set; }
+        public int NotificationThreshold { get; set; }
         public int NumChanges { get; set; }
+        public DateTime DateAndTime { get; set; }
+
 
         /// <summary>
         /// Stock class that contains all the information and changes of the stock
@@ -34,33 +37,42 @@ namespace _475_Lab_3
             this.InitValue = initValue;
             this.MaxChange = maxChange;
             this.NotificationThreshold = notificationThreshold;
+            _thread = new Thread(new ThreadStart(Activate));    //creates a new thread & executes it
         }
 
         /// <summary>
         /// Activates the threads synchronizations
         /// </summary>
-        public void Activate(StockNotification args)
+        public void Activate()
         {
             for (int i = 0; i < 25; i++)
             {
                 Thread.Sleep(500); // Thread pauses for 1/2 second (500 milliseconds)
                 //Call the function ChangeStockValue
-                ChangeStockValue(args);
+                ChangeStockValue();
             }
         }
 
-       
+
 
         /// <summary>
         /// Changes the stock value and also raising the event of stock value changes
         /// </summary>
-        public void ChangeStockValue(StockNotification args)
+        public void ChangeStockValue()
         {
             var rand = new Random();
             CurrentValue += rand.Next(1, MaxChange);
+            NumChanges++;
+
             if ((CurrentValue - InitValue) > NotificationThreshold)
             {
-                StockEvent?.Invoke(this, args);
+                StockNotification args = new StockNotification();   //create event
+                // Create event data
+                args.StockName = Name;
+                args.CurrentValue = CurrentValue;
+                args.NumChanges = NumChanges;
+
+                StockEvent?.Invoke(this, args); //raises event by invoking delegate
             }
         }
 
@@ -69,13 +81,22 @@ namespace _475_Lab_3
         /// An event to notify saving the following info to a text file when the threshold is reached:
         /// date & time, stock name, initial value, and current value
         /// </summary>
-        public void StockChangeFile(FileReachedEventArgs args)
+        public void StockChangeFile()
         {
+
             if ((CurrentValue - InitValue) > NotificationThreshold)
             {
+                FileReachedEventArgs args = new FileReachedEventArgs(); //create event
+                // Create event data
+                args.DateAndTime = DateAndTime;
+                args.StockName = Name;
+                args.InitValue = InitValue;
+                args.CurrentValue = CurrentValue;
+
                 FileReachedEvent?.Invoke(this, args);
             }
         }
+
 
     }
 }
