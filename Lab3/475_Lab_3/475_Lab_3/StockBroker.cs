@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
 namespace _475_Lab_3
 {
@@ -37,6 +35,8 @@ namespace _475_Lab_3
         {
             stocks.Add(stock);  // Adds stock to list
             stock.StockEvent += EventHandler;  // register with an event
+            //Console.WriteLine(titles);
+
         }
 
         /// <summary>
@@ -49,11 +49,9 @@ namespace _475_Lab_3
             try
             {
                 Stock newStock = (Stock)sender; // Get the stock that changed
-                string statement = titles;  
-                Console.WriteLine(statement);   // print statemnet to console
-
+                string statement;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }

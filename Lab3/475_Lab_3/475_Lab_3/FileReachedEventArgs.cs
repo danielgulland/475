@@ -18,15 +18,13 @@ namespace _475_Lab_3
         /// <param name="stockName">Name of stock</param>
         /// <param name="initValue">Starting stock value</param>
         /// <param name="currentValue">Current vallue of the stock</param>
-        public FileReachedEventArgs(DateTime dateAndTime, string stockName, int initValue, int currentValue)
-        {
-            this.DateAndTime = DateAndTime;
-            this.StockName = StockName;
-            this.InitValue = InitValue;
-            this.CurrentValue = CurrentValue;
-        }
-           
-   
-    
+        //public FileReachedEventArgs(DateTime dateAndTime, string stockName, int initValue, int currentValue)
+        //{
+        //    this.DateAndTime = DateAndTime;
+        //    this.StockName = StockName;
+        //    this.InitValue = InitValue;
+        //    this.CurrentValue = CurrentValue;
+        //}
+
     }
 }
