@@ -77,6 +77,5 @@ namespace _475_Lab_3
             }
         }
 
-
     }
 }
