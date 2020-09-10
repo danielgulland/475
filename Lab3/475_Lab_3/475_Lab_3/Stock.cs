@@ -33,11 +33,13 @@ namespace _475_Lab_3
         /// <param name="notificationThreshold">The range for the stock</param>
         public Stock(String name, int initValue, int maxChange, int notificationThreshold)
         {
-            this.Name = name;
-            this.InitValue = initValue;
-            this.MaxChange = maxChange;
-            this.NotificationThreshold = notificationThreshold;
-            _thread = new Thread(new ThreadStart(Activate));    //creates a new thread & executes it
+            Name = name;
+            InitValue = initValue;
+            MaxChange = maxChange;
+            NotificationThreshold = notificationThreshold;
+            CurrentValue = initValue;
+            _thread = new Thread(Activate);    //creates a new thread & executes it
+            _thread.Start();
         }
 
         /// <summary>
@@ -53,15 +55,14 @@ namespace _475_Lab_3
             }
         }
 
-
-
         /// <summary>
         /// Changes the stock value and also raising the event of stock value changes
         /// </summary>
         public void ChangeStockValue()
         {
             var rand = new Random();
-            CurrentValue += rand.Next(1, MaxChange);
+            CurrentValue += rand.Next(1, MaxChange + 1);
+
             NumChanges++;
 
             if ((CurrentValue - InitValue) > NotificationThreshold)
@@ -76,14 +77,12 @@ namespace _475_Lab_3
             }
         }
 
-
         /// <summary>
         /// An event to notify saving the following info to a text file when the threshold is reached:
         /// date & time, stock name, initial value, and current value
         /// </summary>
         public void StockChangeFile()
         {
-
             if ((CurrentValue - InitValue) > NotificationThreshold)
             {
                 FileReachedEventArgs args = new FileReachedEventArgs(); //create event

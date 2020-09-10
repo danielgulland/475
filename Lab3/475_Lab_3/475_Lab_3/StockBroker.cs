@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace _475_Lab_3
 {
@@ -44,11 +45,12 @@ namespace _475_Lab_3
         /// </summary>
         /// <param name="sender">The sender that indicated a change</param>
         /// <param name="e">Event arguments</param>
-        public void EventHandler(Object sender, EventArgs e)
+        public void EventHandler(Object sender, StockNotification e)
         {
             try
             {
                 Stock newStock = (Stock)sender; // Get the stock that changed
+                Console.WriteLine(Name + " " + e.StockName + " " + e.CurrentValue + " " + e.NumChanges);
                 string statement;
             }
             catch (Exception ex)
