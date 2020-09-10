@@ -38,6 +38,7 @@ namespace _475_Lab_3
             MaxChange = maxChange;
             NotificationThreshold = notificationThreshold;
             CurrentValue = initValue;
+            DateAndTime = DateTime.Now;
             _thread = new Thread(Activate);    //creates a new thread & executes it
             _thread.Start();
         }
@@ -74,6 +75,7 @@ namespace _475_Lab_3
                 args.NumChanges = NumChanges;
 
                 StockEvent?.Invoke(this, args); //raises event by invoking delegate
+                StockChangeFile();
             }
         }
 
@@ -83,17 +85,14 @@ namespace _475_Lab_3
         /// </summary>
         public void StockChangeFile()
         {
-            if ((CurrentValue - InitValue) > NotificationThreshold)
-            {
-                FileReachedEventArgs args = new FileReachedEventArgs(); //create event
-                // Create event data
-                args.DateAndTime = DateAndTime;
-                args.StockName = Name;
-                args.InitValue = InitValue;
-                args.CurrentValue = CurrentValue;
+            FileReachedEventArgs args = new FileReachedEventArgs(); //create event
+            // Create event data
+            args.DateAndTime = DateAndTime;
+            args.StockName = Name;
+            args.InitValue = InitValue;
+            args.CurrentValue = CurrentValue;
 
-                FileReachedEvent?.Invoke(this, args);
-            }
+            FileReachedEvent?.Invoke(this, args);
         }
 
 
